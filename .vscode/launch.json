@@ -16,5 +16,18 @@
             "name": "app1: node",
             "program": "${workspaceFolder}/app1/app.js"
         },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "app3-raw: node",
+            "program": "${workspaceFolder}/app3-raw/bin/www"
+        },
+        {
+            "name": "app2 angular chrome",
+            "type": "chrome",
+            "request": "launch",
+/*            "preLaunchTask": "npm: start", */
+            "url": "http://localhost:4200/"
+          },
     ]
 }
