@@ -1,5 +1,15 @@
 {
-  "name":    "helloworld",
+  "name": "helloworld",
   "version": "1.0.1",
-  "main":    "main.js"
+  "main": "main.js",
+  "scripts":{
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    
+  },
+  "devDependencies": {
+    "electron-builder": "^24.13.3"
+  }
 }

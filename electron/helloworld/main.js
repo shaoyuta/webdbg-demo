@@ -1,15 +1,31 @@
 const {app, BrowserWindow} = require('electron');
 
-let mainWindow;
+const createWindow = () => {
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600
+  })
 
-app.on('ready', () => {
-  mainWindow = new BrowserWindow({
-      height: 600,
-      width: 800, 
-      webPreferences: {
-      	nodeIntegration: true
-      }
-  });
+  win.loadFile('index.html')
+  console.log('create window');
+};
 
-  mainWindow.loadURL('file://' + __dirname + '/index.html');
-});
+app.whenReady().then(() => {
+  createWindow()
+})
+
+app.on('ready', ()=>{
+  console.log("ready")
+}
+);
+
+app.on('before-quit', ()=>{
+  console.log("before-quit")
+}
+);
+
+app.on('window-all-closed', ()=>{
+  console.log("window-all-closed")
+}
+);
+
