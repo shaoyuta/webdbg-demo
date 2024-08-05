@@ -1,0 +1,37 @@
+const path = require('path');
+
+module.exports = {
+  mode: 'development', // 或 'production'
+  entry: {
+    app: [
+      './src/main.js'
+    ]
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'), // 输出目录
+    filename: 'bundle.js' // 输出文件名
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/, // 匹配所有 .js 文件
+        exclude: /node_modules/, // 排除 node_modules 目录
+        use: {
+          loader: 'babel-loader', // 使用 babel-loader 处理
+          options: {
+            presets: ['@babel/preset-env'] // Babel 预设
+          }
+        }
+      },
+      {
+        test: /\.css$/, // 匹配所有 .css 文件
+        use: ['style-loader', 'css-loader'] // 使用 style-loader 和 css-loader 处理
+      }
+    ]
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'), // 开发服务器的根目录
+    compress: true, // 启用 gzip 压缩
+    port: 9000 // 服务器端口
+  }
+};
