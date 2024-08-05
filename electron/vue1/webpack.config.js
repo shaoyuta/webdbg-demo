@@ -1,19 +1,23 @@
-const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
+const ESLintWebpackPlugin = require('eslint-webpack-plugin');
+// const Plugin = require('@vue/vue-loader-v15');
+// const DefinePlugin = require('feature-flags');
+const { DefinePlugin } = require('webpack');
+const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports ={
   mode: 'development',
-  context: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1',
+  context: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1',
   output: {
     hashFunction: 'xxhash64',
-    path: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\dist',
+    path: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/dist',
     filename: 'js/[name].js',
-    publicPath: '/',
+    publicPath: '',
     chunkFilename: 'js/[name].js'
   },
   resolve: {
     alias: {
-      '@': 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\src',
+      '@': '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/src',
       vue$: 'vue/dist/vue.runtime.esm-bundler.js'
     },
     extensions: [
@@ -26,16 +30,16 @@ module.exports ={
     ],
     modules: [
       'node_modules',
-      'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules',
-      'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\@vue\\cli-service\\node_modules'
+      '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules',
+      '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/@vue/cli-service/node_modules'
     ]
   },
   resolveLoader: {
     modules: [
-      'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\@vue\\cli-plugin-babel\\node_modules',
+      '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/@vue/cli-plugin-babel/node_modules',
       'node_modules',
-      'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules',
-      'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\@vue\\cli-service\\node_modules'
+      '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules',
+      '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/@vue/cli-service/node_modules'
     ]
   },
   module: {
@@ -54,10 +58,10 @@ module.exports ={
         use: [
           /* config.module.rule('vue').use('vue-loader') */
           {
-            loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-loader\\dist\\index.js',
+            loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-loader/dist/index.js',
             options: {
-              cacheDirectory: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\.cache\\vue-loader',
-              cacheIdentifier: '242e1cae',
+              cacheDirectory: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/.cache/vue-loader',
+              cacheIdentifier: '5418faa3',
               babelParserPlugins: [
                 'jsx',
                 'classProperties',
@@ -144,7 +148,7 @@ module.exports ={
             use: [
               /* config.module.rule('css').oneOf('vue-modules').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -152,7 +156,7 @@ module.exports ={
               },
               /* config.module.rule('css').oneOf('vue-modules').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
@@ -164,7 +168,7 @@ module.exports ={
               },
               /* config.module.rule('css').oneOf('vue-modules').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -182,7 +186,7 @@ module.exports ={
             use: [
               /* config.module.rule('css').oneOf('vue').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -190,7 +194,7 @@ module.exports ={
               },
               /* config.module.rule('css').oneOf('vue').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -198,7 +202,7 @@ module.exports ={
               },
               /* config.module.rule('css').oneOf('vue').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -216,7 +220,7 @@ module.exports ={
             use: [
               /* config.module.rule('css').oneOf('normal-modules').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -224,7 +228,7 @@ module.exports ={
               },
               /* config.module.rule('css').oneOf('normal-modules').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -232,7 +236,7 @@ module.exports ={
               },
               /* config.module.rule('css').oneOf('normal-modules').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -249,7 +253,7 @@ module.exports ={
             use: [
               /* config.module.rule('css').oneOf('normal').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -257,7 +261,7 @@ module.exports ={
               },
               /* config.module.rule('css').oneOf('normal').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -265,7 +269,7 @@ module.exports ={
               },
               /* config.module.rule('css').oneOf('normal').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -289,7 +293,7 @@ module.exports ={
             use: [
               /* config.module.rule('postcss').oneOf('vue-modules').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -297,7 +301,7 @@ module.exports ={
               },
               /* config.module.rule('postcss').oneOf('vue-modules').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
@@ -309,7 +313,7 @@ module.exports ={
               },
               /* config.module.rule('postcss').oneOf('vue-modules').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -327,7 +331,7 @@ module.exports ={
             use: [
               /* config.module.rule('postcss').oneOf('vue').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -335,7 +339,7 @@ module.exports ={
               },
               /* config.module.rule('postcss').oneOf('vue').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -343,7 +347,7 @@ module.exports ={
               },
               /* config.module.rule('postcss').oneOf('vue').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -361,7 +365,7 @@ module.exports ={
             use: [
               /* config.module.rule('postcss').oneOf('normal-modules').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -369,7 +373,7 @@ module.exports ={
               },
               /* config.module.rule('postcss').oneOf('normal-modules').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -377,7 +381,7 @@ module.exports ={
               },
               /* config.module.rule('postcss').oneOf('normal-modules').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -394,7 +398,7 @@ module.exports ={
             use: [
               /* config.module.rule('postcss').oneOf('normal').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -402,7 +406,7 @@ module.exports ={
               },
               /* config.module.rule('postcss').oneOf('normal').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -410,7 +414,7 @@ module.exports ={
               },
               /* config.module.rule('postcss').oneOf('normal').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -434,7 +438,7 @@ module.exports ={
             use: [
               /* config.module.rule('scss').oneOf('vue-modules').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -442,7 +446,7 @@ module.exports ={
               },
               /* config.module.rule('scss').oneOf('vue-modules').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
@@ -454,7 +458,7 @@ module.exports ={
               },
               /* config.module.rule('scss').oneOf('vue-modules').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -479,7 +483,7 @@ module.exports ={
             use: [
               /* config.module.rule('scss').oneOf('vue').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -487,7 +491,7 @@ module.exports ={
               },
               /* config.module.rule('scss').oneOf('vue').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -495,7 +499,7 @@ module.exports ={
               },
               /* config.module.rule('scss').oneOf('vue').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -520,7 +524,7 @@ module.exports ={
             use: [
               /* config.module.rule('scss').oneOf('normal-modules').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -528,7 +532,7 @@ module.exports ={
               },
               /* config.module.rule('scss').oneOf('normal-modules').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -536,7 +540,7 @@ module.exports ={
               },
               /* config.module.rule('scss').oneOf('normal-modules').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -560,7 +564,7 @@ module.exports ={
             use: [
               /* config.module.rule('scss').oneOf('normal').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -568,7 +572,7 @@ module.exports ={
               },
               /* config.module.rule('scss').oneOf('normal').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -576,7 +580,7 @@ module.exports ={
               },
               /* config.module.rule('scss').oneOf('normal').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -607,7 +611,7 @@ module.exports ={
             use: [
               /* config.module.rule('sass').oneOf('vue-modules').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -615,7 +619,7 @@ module.exports ={
               },
               /* config.module.rule('sass').oneOf('vue-modules').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
@@ -627,7 +631,7 @@ module.exports ={
               },
               /* config.module.rule('sass').oneOf('vue-modules').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -655,7 +659,7 @@ module.exports ={
             use: [
               /* config.module.rule('sass').oneOf('vue').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -663,7 +667,7 @@ module.exports ={
               },
               /* config.module.rule('sass').oneOf('vue').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -671,7 +675,7 @@ module.exports ={
               },
               /* config.module.rule('sass').oneOf('vue').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -699,7 +703,7 @@ module.exports ={
             use: [
               /* config.module.rule('sass').oneOf('normal-modules').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -707,7 +711,7 @@ module.exports ={
               },
               /* config.module.rule('sass').oneOf('normal-modules').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -715,7 +719,7 @@ module.exports ={
               },
               /* config.module.rule('sass').oneOf('normal-modules').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -742,7 +746,7 @@ module.exports ={
             use: [
               /* config.module.rule('sass').oneOf('normal').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -750,7 +754,7 @@ module.exports ={
               },
               /* config.module.rule('sass').oneOf('normal').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -758,7 +762,7 @@ module.exports ={
               },
               /* config.module.rule('sass').oneOf('normal').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -792,7 +796,7 @@ module.exports ={
             use: [
               /* config.module.rule('less').oneOf('vue-modules').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -800,7 +804,7 @@ module.exports ={
               },
               /* config.module.rule('less').oneOf('vue-modules').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
@@ -812,7 +816,7 @@ module.exports ={
               },
               /* config.module.rule('less').oneOf('vue-modules').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -837,7 +841,7 @@ module.exports ={
             use: [
               /* config.module.rule('less').oneOf('vue').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -845,7 +849,7 @@ module.exports ={
               },
               /* config.module.rule('less').oneOf('vue').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -853,7 +857,7 @@ module.exports ={
               },
               /* config.module.rule('less').oneOf('vue').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -878,7 +882,7 @@ module.exports ={
             use: [
               /* config.module.rule('less').oneOf('normal-modules').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -886,7 +890,7 @@ module.exports ={
               },
               /* config.module.rule('less').oneOf('normal-modules').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -894,7 +898,7 @@ module.exports ={
               },
               /* config.module.rule('less').oneOf('normal-modules').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -918,7 +922,7 @@ module.exports ={
             use: [
               /* config.module.rule('less').oneOf('normal').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -926,7 +930,7 @@ module.exports ={
               },
               /* config.module.rule('less').oneOf('normal').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -934,7 +938,7 @@ module.exports ={
               },
               /* config.module.rule('less').oneOf('normal').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -965,7 +969,7 @@ module.exports ={
             use: [
               /* config.module.rule('stylus').oneOf('vue-modules').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -973,7 +977,7 @@ module.exports ={
               },
               /* config.module.rule('stylus').oneOf('vue-modules').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
@@ -985,7 +989,7 @@ module.exports ={
               },
               /* config.module.rule('stylus').oneOf('vue-modules').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -1010,7 +1014,7 @@ module.exports ={
             use: [
               /* config.module.rule('stylus').oneOf('vue').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -1018,7 +1022,7 @@ module.exports ={
               },
               /* config.module.rule('stylus').oneOf('vue').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -1026,7 +1030,7 @@ module.exports ={
               },
               /* config.module.rule('stylus').oneOf('vue').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -1051,7 +1055,7 @@ module.exports ={
             use: [
               /* config.module.rule('stylus').oneOf('normal-modules').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -1059,7 +1063,7 @@ module.exports ={
               },
               /* config.module.rule('stylus').oneOf('normal-modules').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -1067,7 +1071,7 @@ module.exports ={
               },
               /* config.module.rule('stylus').oneOf('normal-modules').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -1091,7 +1095,7 @@ module.exports ={
             use: [
               /* config.module.rule('stylus').oneOf('normal').use('vue-style-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\vue-style-loader\\index.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/vue-style-loader/index.js',
                 options: {
                   sourceMap: false,
                   shadowMode: false
@@ -1099,7 +1103,7 @@ module.exports ={
               },
               /* config.module.rule('stylus').oneOf('normal').use('css-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\css-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -1107,7 +1111,7 @@ module.exports ={
               },
               /* config.module.rule('stylus').oneOf('normal').use('postcss-loader') */
               {
-                loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\postcss-loader\\dist\\cjs.js',
+                loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/postcss-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   postcssOptions: {
@@ -1137,11 +1141,11 @@ module.exports ={
         use: [
           /* config.module.rule('js').use('babel-loader') */
           {
-            loader: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\babel-loader\\lib\\index.js',
+            loader: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/babel-loader/lib/index.js',
             options: {
               cacheCompression: false,
-              cacheDirectory: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\.cache\\babel-loader',
-              cacheIdentifier: '5bf1f45c'
+              cacheDirectory: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/.cache/babel-loader',
+              cacheIdentifier: '06de6288'
             }
           }
         ]
@@ -1209,7 +1213,8 @@ module.exports ={
   },
   plugins: [
     /* config.plugin('vue-loader') */
-    new Plugin(),
+    // new Plugin(),
+    new VueLoaderPlugin(),
     /* config.plugin('feature-flags') */
     new DefinePlugin(
       {
@@ -1217,60 +1222,6 @@ module.exports ={
         __VUE_PROD_DEVTOOLS__: 'false'
       }
     ),
-    /* config.plugin('define') */
-    new DefinePlugin(
-      {
-        'process.env': {
-          NODE_ENV: '"development"',
-          BASE_URL: '"/"'
-        }
-      }
-    ),
-    /* config.plugin('case-sensitive-paths') */
-    new CaseSensitivePathsPlugin(),
-    /* config.plugin('friendly-errors') */
-    new FriendlyErrorsWebpackPlugin(
-      {
-        additionalTransformers: [
-          function () { /* omitted long function */ }
-        ],
-        additionalFormatters: [
-          function () { /* omitted long function */ }
-        ]
-      }
-    ),
-    /* config.plugin('html') */
-    new HtmlWebpackPlugin(
-      {
-        title: 'vue2',
-        scriptLoading: 'defer',
-        templateParameters: function () { /* omitted long function */ },
-        template: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\public\\index.html'
-      }
-    ),
-    /* config.plugin('copy') */
-    new CopyPlugin(
-      {
-        patterns: [
-          {
-            from: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\public',
-            to: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\dist',
-            toType: 'dir',
-            noErrorOnMissing: true,
-            globOptions: {
-              ignore: [
-                '**/.DS_Store',
-                'C:/work/opensrc/shaoyu/webdbg-demo/electron/vue1/public/index.html'
-              ]
-            },
-            info: {
-              minimized: true
-            }
-          }
-        ]
-      }
-    ),
-    /* config.plugin('eslint') */
     new ESLintWebpackPlugin(
       {
         extensions: [
@@ -1278,13 +1229,13 @@ module.exports ={
           '.jsx',
           '.vue'
         ],
-        cwd: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1',
+        cwd: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1',
         cache: true,
-        cacheLocation: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\.cache\\eslint\\09401b7c.json',
-        context: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1',
+        cacheLocation: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/.cache/eslint/8647d67e.json',
+        context: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1',
         failOnWarning: false,
         failOnError: true,
-        eslintPath: 'C:\\work\\opensrc\\shaoyu\\webdbg-demo\\electron\\vue1\\node_modules\\eslint',
+        eslintPath: '/home/taosy/repo/shaoyu/webdbg-demo/electron/vue1/node_modules/eslint',
         formatter: 'stylish'
       }
     )
