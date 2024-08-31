@@ -4,17 +4,16 @@
     <HelloWorld msg="Welcome to Your Vue.js App" />
     <MouseTracker />
     <TestField />
-    <ToDoForm></ToDoForm>
+    <ToDoForm/>
   </div>
 
 </template>
 
-<script>
+<script lang="ts">
 import HelloWorld from './components/HelloWorld.vue';
 import ToDoForm from "./components/ToDoForm.vue";
 import MouseTracker from "./components/MouseTracker.vue";
 import TestField from "./components/TestField.vue";
-
 
 export default {
   name: 'App',
