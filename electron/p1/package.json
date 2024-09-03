@@ -5,9 +5,11 @@
   "scripts": {
     "serve": "vue-cli-service serve --port 8088",
     "build": "vue-cli-service build",
+    "electron:serve": "vue-cli-service electron:serve",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@electron/remote": "^2.1.2",
     "ant-design-vue": "^4.2.3",
     "core-js": "^3.8.3",
     "lodash.uniqueid": "^4.0.1",
@@ -22,7 +24,10 @@
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
-    "typescript": "^5.5.4"
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.5.4",
+    "vue-cli-plugin-electron-builder": "^3.0.0-alpha.4",
+    "webpack": "^5.94.0"
   },
   "eslintConfig": {
     "root": true,

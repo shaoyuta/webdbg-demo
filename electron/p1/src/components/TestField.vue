@@ -1,7 +1,7 @@
 <template>
     <form>
         <fieldset>
-          <legend>Feedback form</legend>
+          <legend>Feedback</legend>
           <div>
             <label for="fname">First name: </label>
             <input id="fname" name="fname" type="text" required />
@@ -16,9 +16,17 @@
             </label>
             <input id="email" name="email" type="email" />
           </div>
-          <div><button>Submit</button></div>
+          <div><button>{{buttonLabel}}</button></div>
         </fieldset>
       </form>
 </template>
 <script>
+import { testString1 } from '../modules/myModule1.js'
+export default {
+  data() {
+    return {
+      buttonLabel: testString1()
+    };
+  }
+};
 </script>
